@@ -1,14 +1,8 @@
-import formidable from 'formidable';
-import fs from 'fs';
-import axios from 'axios';
-import FormData from 'form-data';
-import path from 'path';
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+const formidable = require('formidable');
+const fs = require('fs');
+const axios = require('axios');
+const FormData = require('form-data');
+const path = require('path');
 
 async function ezremove(filePath) {
   const form = new FormData();
@@ -57,7 +51,7 @@ async function ezremove(filePath) {
   return { status: 'processing', job };
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -134,4 +128,4 @@ export default async function handler(req, res) {
       error: error.message || 'Internal server error'
     });
   }
-}
+};
