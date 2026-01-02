@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watermark Remover - Remove Watermarks Instantly</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-container">
+        <img src="https://raw.githubusercontent.com/Always-Ditz/Image-/main/assets/upscaled_2x_1767321646748.png" 
+             alt="background" 
+             class="background-image"
+             id="bgImage">
+    </div>
+
+    <div class="container fade-in" id="mainContent">
+        <div class="glass-card">
+            <div class="header">
+                <svg class="icon-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <h1>Watermark Remover</h1>
+                <p class="subtitle">Hapus watermark dari gambar Anda secara instan</p>
+            </div>
+
+            <div class="upload-section" id="uploadSection">
+                <label for="fileInput" class="upload-area">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span class="upload-text">Klik atau seret gambar ke sini</span>
+                    <span class="upload-subtext">PNG, JPG, JPEG hingga 10MB</span>
+                </label>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+
+            <div class="preview-section hidden" id="previewSection">
+                <div class="image-preview">
+                    <img id="previewImage" alt="Preview">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="removeBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                        </svg>
+                        Hapus Watermark
+                    </button>
+                </div>
+            </div>
+
+            <div class="result-section hidden" id="resultSection">
+                <div class="image-comparison">
+                    <div class="comparison-item">
+                        <span class="comparison-label">Before</span>
+                        <img id="beforeImage" alt="Before">
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comparison-label">After</span>
+                        <img id="afterImage" alt="After">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="1 4 1 10 7 10"/>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                        </svg>
+                        Reset
+                    </button>
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download
+                    </button>
+                </div>
+            </div>
+
+            <div class="loading-section hidden" id="loadingSection">
+                <div class="spinner"></div>
+                <p class="loading-text">Menghapus watermark...</p>
+                <p class="loading-subtext">Proses ini memakan waktu 10-20 detik</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
