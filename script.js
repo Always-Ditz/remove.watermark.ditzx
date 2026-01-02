@@ -110,6 +110,19 @@ async function removeWatermark() {
             body: formData
         });
         
+        if (!response.ok) {
+            const text = await response.text();
+            console.error('API Error Response:', text);
+            throw new Error(`API Error: ${response.status} - ${text.substring(0, 100)}`);
+        }
+        
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            console.error('Non-JSON Response:', text);
+            throw new Error('API returned invalid response format');
+        }
+        
         const data = await response.json();
         
         if (data.success && data.resultUrl) {
