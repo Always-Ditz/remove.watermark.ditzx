@@ -66,7 +66,7 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const form = formidable({
+    const form = new formidable.IncomingForm({
       maxFileSize: 10 * 1024 * 1024, // 10MB
       keepExtensions: true,
     });
